@@ -13,25 +13,20 @@
     },
     "handlers": {
         "console": {
-            "class": "logging.StreamHandler",
             "level": "DEBUG",
-            "formatters": "default"
+            "class": "logging.StreamHandler",
+            "formatter": "default"
         },
         "file": {
+            "level": "INFO",
             "class": "logging.FileHandler",
-            "level": "ERROR",
-            "formatters": "error",
-            "filename": "./common/logs/error.log"
+            "formatter": "error",
+            "filename": "./common/logs/server.log"
         }
     },
     "loggers": {
-        "server-debug": {
+        "server": {
             "level": "DEBUG",
-            "handlers": ["console"],
-            "propagate": true
-        },
-        "server-error": {
-            "level": "ERROR",
             "handlers": ["console", "file"],
             "propagate": true
         }
