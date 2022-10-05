@@ -1,0 +1,39 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "default": {
+            "format": "%(levelname)s :: %(asctime)s :: %(module)s :: %(name)s :: %(message)s",
+            "datefmt": "%Y-%m-%d %H:%M:%S"
+        },
+        "error": {
+            "format": "%(levelname)s :: %(asctime)s :: %(module)s :: %(name)s :: %(lineno)s :: %(message)s",
+            "datefmt": "%Y-%m-%d %H:%M:%S"
+        }
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "DEBUG",
+            "formatters": "default"
+        },
+        "file": {
+            "class": "logging.FileHandler",
+            "level": "ERROR",
+            "formatters": "error",
+            "filename": "./common/logs/error.log"
+        }
+    },
+    "loggers": {
+        "server-debug": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+            "propagate": true
+        },
+        "server-error": {
+            "level": "ERROR",
+            "handlers": ["console", "file"],
+            "propagate": true
+        }
+    }
+}
