@@ -5,7 +5,7 @@
 import configparser
 
 class CommonConfig:
-    def config_generator():
+    def config_generator(self):
         config = configparser.ConfigParser()
 
         # config['log'] = {}
@@ -17,7 +17,7 @@ class CommonConfig:
             config.write(configfile)
 
 
-    def config_read():
+    def config_read(self):
         # Load set_file
         config = configparser.ConfigParser()
         config.read('./common/config.ini', encoding='utf-8')

@@ -5,7 +5,7 @@ from collector.movie_review_collector import MovieReviewCollector
 import json
 import logging.config
 if __name__ == "__main__":
-
+    
     ##############################
     # 1.Load Config File #
     ##############################
