@@ -11,13 +11,13 @@ class MovieDAO:
 
     def __init__(self):
         # >> MongoDB Connection
-        self.client = MongoClient('localhost', 27017) # 클래스 객체 할당(ip주소, port번호)
+        self.client = MongoClient('192.168.0.3', 27017) # 클래스 객체 할당(ip주소, port번호)
         self.db = self.client['movie']  # MongoDB의 'movie' DB를 할당
         # self.collection = self.db.movie
         self.collection = self.db.get_collection('movie')  # 동적으로 Collection 선택
 
     def add_review(self, review):
-        print('>> MongoDB write data!')
+        # print('>> MongoDB write data!')
         self.collection.insert_one(review) # JSON Type = Dict Type(python)
 
     def get_reviews(self):
