@@ -15,6 +15,8 @@ class MovieReviewCollector:
 
     def movie_title_crawler(self):
         url = 'https://movie.naver.com/movie/bi/mi/point.naver?code={}'.format(self.movie_code)
+        
+        # requests.get() 사용시 SSL Error 나면 → requests.get(url, verify=False) 옵션을 추가하면 HTTPS 요청에 대한 SSL 인증서 과정 생략 가능
         result = requests.get(url)
         soup = BeautifulSoup(result.text, 'html.parser')
         title = soup.select('h3.h_movie > a')[0].get_text()
